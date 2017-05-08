@@ -1,6 +1,7 @@
 package com.mgh.mapper;
 
 import com.mgh.domain.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,5 +18,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    User selectUserByUser_phone(String user_phone);
+    User selectUserByUser_phone(String userPhone);
 }

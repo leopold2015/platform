@@ -21,14 +21,14 @@ public class UserManagerImpl implements UserManager {
     private UserMapper userMapper;
 
     @Override
-    public void userLogin(String user_phone, String user_pwd) {
-        if (StringUtil.isEmpty(user_phone) && StringUtil.isEmpty(user_pwd) && CheckPhone.isMobilePhone(user_phone)) {
+    public void userLogin(String userPhone, String userPwd) {
+        if (StringUtil.isEmpty(userPhone) && StringUtil.isEmpty(userPwd) && CheckPhone.isMobilePhone(userPhone)) {
             throw new MessageException("请正确填写您的用户名和密码！");
         } else {
-            User user = userMapper.selectUserByUser_phone(user_phone);
+            User user = userMapper.selectUserByUser_phone(userPhone);
             if (user == null) {
                 throw new MessageException("该用户不存在，请您正确填写您的用户名！");
-            }else if(!user_pwd.equals(user.getUserPwd())){
+            }else if(!userPwd.equals(user.getUserPwd())){
                 throw new MessageException("您的密码不正确，请正确填写您的密码！");
             }else if(user.getUserType() !=2){
                 throw new MessageException("对不起，您的用户权限不足，无法登陆此区域");

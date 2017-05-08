@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public interface UserManager {
 
-    void userLogin(String user_phone,String user_pwd);
+    void userLogin(String userPhone,String userPwd);
     void checkUser_phone(String user_phone);
     void insertUser(User user);
     void userQuit();

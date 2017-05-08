@@ -23,8 +23,8 @@ public class UserController extends BaseController {
 
     @RequestMapping(value="/userLogin")
     @ResponseBody
-    public Map<String,Object> userLogin(@RequestParam("user_phone") String user_phone,@RequestParam("user_pwd") String user_pwd){
-        userManager.userLogin(user_phone,user_pwd);
+    public Map<String,Object> userLogin(@RequestParam("userPhone") String userPhone,@RequestParam("userPwd") String userPwd){
+        userManager.userLogin(userPhone,userPwd);
         return generateSuccessMsg("登录成功！");
     }
 
