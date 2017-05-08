@@ -1,0 +1,41 @@
+/* 初始化样式 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,
+h3,h4,h5,h6,pre,code,form,fieldset,
+legend,input,button,textarea,p,
+blockquote,th,td { 
+	margin:0; 
+	padding:0; 
+}
+
+body{
+	font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;
+	-webkit-user-select:none;
+    user-select:none;
+}
+
+input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+            -webkit-text-fill-color: #333;
+}
+
+a{
+	text-decoration: none;
+	color:#58f;
+}
+
+/* 自定义样式 */
+@media screen and (min-width: 320px) {
+    html {font-size: 15px;}
+}
+ 
+@media screen and (min-width: 360px) {
+    html {font-size: 17px;}
+}
+ 
+@media screen and (min-width: 412px) {
+    html {font-size: 19px;}
+}
+
+@media screen and (min-width: 768px){
+	html {font-size: 35px;}
+}
