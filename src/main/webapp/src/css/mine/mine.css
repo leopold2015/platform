@@ -2,15 +2,18 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    background-color:#f3f3f3;
+}
 .mianInfo{
     width: 100%;
     height: auto;
     padding-bottom: 50px;
+    background:#f3f3f3;
 }
 .userInfo{
     width: 100%;
     border-bottom: 1px solid #e8dddd;
-    box-shadow:0px 0px 0px 3px  #f5f5f5;
     padding-top:1em;
     padding-bottom: 1em;
     background-color: #bd384c;
@@ -34,3 +37,40 @@
     font-size: 0.8em;
     margin-top: 0.3em;
 }
+/*.collect{
+    width: 100%;
+    height: 10em;
+}*/
+.menuInfo{
+    width: 100%;
+    margin-top: 1em;
+    background:#fff;
+    border-top:1px solid #e4e4e4;
+    /*border-bottom: 1px solid #ccc;*/
+}
+.collect{
+    width: 100%;
+    border-bottom: 1px solid #e3dfdf;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.collect img{
+    width: 5%;
+    vertical-align: middle;
+    margin-left: 1em;
+}
+.collect span{
+    font-size: 1.3em;
+    vertical-align:middle;
+    margin-left:0.5em;
+}
+.collect .more{
+    width: 6%;
+    float: right;
+    margin-right: 1.5em;
+    margin-top: -0.5%;
+}
+.collect .tel{
+    margin-left: 10em;
+}
+
