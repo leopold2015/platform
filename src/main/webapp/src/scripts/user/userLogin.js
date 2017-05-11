@@ -25,7 +25,7 @@ function checkPhone(phone){
     var flag = false;
     if(phone == ""){
         layer.msg("您输入的手机号码有误，请重新输入");
-    }else if(isPhone(phone)){
+    }else if(!isPhone(phone)){
         layer.msg("您输入的手机号码有误，请重新输入")
     }else{
         flag = true;
@@ -35,7 +35,7 @@ function checkPhone(phone){
 
 function login(phone,password){
     if(checkPhone(phone) && checkPassword(password)){
-        /*$.ajax({
+        $.ajax({
             url:'/Platform/user/userLogin',
             data:{userPhone:phone,userPwd:password},
             type:'post',
@@ -45,8 +45,7 @@ function login(phone,password){
                     location.href="/Platform/pages/index.html"
                 }
             }
-        });*/
-        location.href="/Platform/pages/index.html"
+        });
     }
 
 }
@@ -66,6 +65,8 @@ function checkPassword(password) {
 function isPhone(phone){
     if(!(/^1[34578]\d{9}$/.test(phone))){
         return false;
+    }else {
+        return true;
     }
 }
 

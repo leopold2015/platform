@@ -58,8 +58,14 @@
 	
     <div class="send-info">
         <img src="../../src/img/info.png"/>
-        <input type="text"/>
-        <button class="btn">发送</button>
+
+        <form action="/Platform/topic/addCommunicate" method="post">
+            <input type="text"/>
+            <button class="btn">发送</button>
+        </form>
     </div>
+    <script src="../../libs/jquery.js"></script>
+    <script src="../../libs/layer-v2.2/layer/layer.js"></script>
+    <script src="../../src/scripts/topic/topicDetail.js"></script>
 </body>
 </html>
