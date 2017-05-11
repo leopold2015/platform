@@ -1,33 +1,33 @@
 package com.mgh.domain;
 
 public class Collection {
-    private Integer collectionId;
+    private Integer collection_id;
 
-    private Integer communicateId;
+    private Integer communicate_id;
 
-    private Integer userId;
+    private Integer user_id;
 
-    public Integer getCollectionId() {
-        return collectionId;
+    public Integer getCollection_id() {
+        return collection_id;
     }
 
-    public void setCollectionId(Integer collectionId) {
-        this.collectionId = collectionId;
+    public void setCollection_id(Integer collection_id) {
+        this.collection_id = collection_id;
     }
 
-    public Integer getCommunicateId() {
-        return communicateId;
+    public Integer getCommunicate_id() {
+        return communicate_id;
     }
 
-    public void setCommunicateId(Integer communicateId) {
-        this.communicateId = communicateId;
+    public void setCommunicate_id(Integer communicate_id) {
+        this.communicate_id = communicate_id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 }

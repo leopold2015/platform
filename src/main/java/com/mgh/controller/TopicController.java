@@ -6,6 +6,7 @@ import com.mgh.serviceManager.TopicManager;
 import com.mgh.util.session.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,15 +25,24 @@ public class TopicController extends BaseController {
 
     @RequestMapping(value = "/createTopic")
     @ResponseBody
-    public Map<String,Object> createTopic(@RequestParam("topic") Topic topic){
-        topicManager.createTopic(topic);
+    public Map<String,Object> createTopic(@RequestParam("topic_content") String topic_content){
+        topicManager.createTopic(topic_content);
         return generateSuccessMsg("话题创建成功！");
     }
 
     @RequestMapping(value="/showTopicByUser_id")
     @ResponseBody
     public Map<String,Object> showTopicByUser_id(){
-        List<Topic> topics = topicManager.showTopicByUser_id(SessionUtils.getCurrentUser().getUserId());
+        List<Topic> topics = topicManager.showTopicByUser_id(SessionUtils.getCurrentUser().getUser_id());
+        Map successMsg = generateSuccessMsg("查询成功！");
+        successMsg.put("topics",topics);
+        return successMsg;
+    }
+
+    @RequestMapping(value="/showAllTopics")
+    @ResponseBody
+    public Map<String,Object> showAllTopics(){
+        List<Topic> topics = topicManager.showAllTopic();
         Map successMsg = generateSuccessMsg("查询成功！");
         successMsg.put("topics",topics);
         return successMsg;

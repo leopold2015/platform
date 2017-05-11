@@ -9,7 +9,7 @@ import java.util.List;
 public interface TopicMapper {
     int deleteByPrimaryKey(Integer topicId);
 
-    int insertTopic(Topic record);
+    void insertTopic(Topic record);
 
     int insertSelective(Topic record);
 
@@ -18,4 +18,6 @@ public interface TopicMapper {
     int updateByPrimaryKeySelective(Topic record);
 
     int updateByPrimaryKey(Topic record);
+
+    List<Topic> showAllTopic();
 }

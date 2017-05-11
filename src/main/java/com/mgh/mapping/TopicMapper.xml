@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mgh.mapper.TopicMapper" >
   <resultMap id="BaseResultMap" type="com.mgh.domain.Topic" >
-    <id column="topic_id" property="topicId" jdbcType="INTEGER" />
-    <result column="topic_content" property="topicContent" jdbcType="VARCHAR" />
-    <result column="topic_createtime" property="topicCreatetime" jdbcType="DATE" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <id column="topic_id" property="topic_id" jdbcType="INTEGER" />
+    <result column="topic_content" property="topic_content" jdbcType="VARCHAR" />
+    <result column="topic_createtime" property="topic_createtime" jdbcType="DATE" />
+    <result column="user_id" property="user_id" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     topic_id, topic_content, topic_createtime, user_id
@@ -16,44 +16,48 @@
     from topic
     where user_id = #{user_id,jdbcType=INTEGER}
   </select>
+  <select id="showAllTopic" resultMap="BaseResultMap" >
+    select * from topic;
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from topic
-    where topic_id = #{topicId,jdbcType=INTEGER}
+    where topic_id = #{topic_id,jdbcType=INTEGER}
   </delete>
   <insert id="insertTopic" parameterType="com.mgh.domain.Topic" >
     insert into topic (topic_id, topic_content, topic_createtime, 
       user_id)
-    values (#{topicId,jdbcType=INTEGER}, #{topicContent,jdbcType=VARCHAR}, #{topicCreatetime,jdbcType=DATE}, 
-      #{userId,jdbcType=INTEGER})
+    values (#{topic_id,jdbcType=INTEGER}, #{topic_content,jdbcType=VARCHAR}, #{topic_createtime,jdbcType=DATE},
+      #{user_id,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.mgh.domain.Topic" >
     insert into topic
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="topicId != null" >
+      <if test="topic_id != null" >
         topic_id,
       </if>
-      <if test="topicContent != null" >
+      <if test="topic_content != null" >
         topic_content,
       </if>
-      <if test="topicCreatetime != null" >
+      <if test="topic_createtime != null" >
         topic_createtime,
       </if>
-      <if test="userId != null" >
+      <if test="user_id != null" >
         user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="topicId != null" >
-        #{topicId,jdbcType=INTEGER},
+      <if test="topic_id != null" >
+        #{topic_id,jdbcType=INTEGER},
       </if>
-      <if test="topicContent != null" >
-        #{topicContent,jdbcType=VARCHAR},
+      <if test="topic_content != null" >
+        #{topic_content,jdbcType=VARCHAR},
       </if>
-      <if test="topicCreatetime != null" >
-        #{topicCreatetime,jdbcType=DATE},
+      <if test="topic_createtime != null" >
+        #{topic_createtime,jdbcType=DATE},
       </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
+      <if test="user_id != null" >
+        #{user_id,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -61,22 +65,22 @@
     update topic
     <set >
       <if test="topicContent != null" >
-        topic_content = #{topicContent,jdbcType=VARCHAR},
+        topic_content = #{topic_content,jdbcType=VARCHAR},
       </if>
       <if test="topicCreatetime != null" >
-        topic_createtime = #{topicCreatetime,jdbcType=DATE},
+        topic_createtime = #{topic_createtime,jdbcType=DATE},
       </if>
       <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{user_id,jdbcType=INTEGER},
       </if>
     </set>
-    where topic_id = #{topicId,jdbcType=INTEGER}
+    where topic_id = #{topic_id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mgh.domain.Topic" >
     update topic
-    set topic_content = #{topicContent,jdbcType=VARCHAR},
-      topic_createtime = #{topicCreatetime,jdbcType=DATE},
-      user_id = #{userId,jdbcType=INTEGER}
-    where topic_id = #{topicId,jdbcType=INTEGER}
+    set topic_content = #{topic_content,jdbcType=VARCHAR},
+      topic_createtime = #{topic_createtime,jdbcType=DATE},
+      user_id = #{user_id,jdbcType=INTEGER}
+    where topic_id = #{topic_id,jdbcType=INTEGER}
   </update>
 </mapper>

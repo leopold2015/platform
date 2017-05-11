@@ -34,7 +34,7 @@ public class CollectionController extends BaseController {
     @RequestMapping(value="/deleteCollection")
     @ResponseBody
     public Map<String,Object> deleteCollection(@RequestParam("communicate_id") int communicate_id){
-        collectionManager.deleteCollection(SessionUtils.getCurrentUser().getUserId(),communicate_id);
+        collectionManager.deleteCollection(SessionUtils.getCurrentUser().getUser_id(),communicate_id);
         return generateSuccessMsg("删除成功！");
     }
 }

@@ -18,8 +18,8 @@ public class CommunicateManagerImpl implements CommunicateManager {
     private CommunicateMapper communicateMapper;
     @Override
     public void insertCommunicate(Communicate communicate) {
-        communicate.setUserId(SessionUtils.getCurrentUser().getUserId());
-        communicate.setCommunicateTime(CurrentDate.getCurrentDate());
+        communicate.setUser_id(SessionUtils.getCurrentUser().getUser_id());
+        communicate.setCommunicate_time(CurrentDate.getCurrentDate());
         communicateMapper.insertCommunicate(communicate);
     }
 

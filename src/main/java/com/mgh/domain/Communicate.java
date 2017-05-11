@@ -3,53 +3,53 @@ package com.mgh.domain;
 import java.util.Date;
 
 public class Communicate {
-    private Integer communicateId;
+    private Integer communicate_id;
 
-    private Date communicateTime;
+    private Date communicate_time;
 
-    private Integer userId;
+    private Integer user_id;
 
-    private Integer topicId;
+    private Integer topic_id;
 
-    private String communicateContent;
+    private String communicate_content;
 
-    public Integer getCommunicateId() {
-        return communicateId;
+    public Integer getCommunicate_id() {
+        return communicate_id;
     }
 
-    public void setCommunicateId(Integer communicateId) {
-        this.communicateId = communicateId;
+    public void setCommunicate_id(Integer communicate_id) {
+        this.communicate_id = communicate_id;
     }
 
-    public Date getCommunicateTime() {
-        return communicateTime;
+    public Date getCommunicate_time() {
+        return communicate_time;
     }
 
-    public void setCommunicateTime(Date communicateTime) {
-        this.communicateTime = communicateTime;
+    public void setCommunicate_time(Date communicate_time) {
+        this.communicate_time = communicate_time;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
-    public Integer getTopicId() {
-        return topicId;
+    public Integer getTopic_id() {
+        return topic_id;
     }
 
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
+    public void setTopic_id(Integer topic_id) {
+        this.topic_id = topic_id;
     }
 
-    public String getCommunicateContent() {
-        return communicateContent;
+    public String getCommunicate_content() {
+        return communicate_content;
     }
 
-    public void setCommunicateContent(String communicateContent) {
-        this.communicateContent = communicateContent == null ? null : communicateContent.trim();
+    public void setCommunicate_content(String communicate_content) {
+        this.communicate_content = communicate_content;
     }
 }

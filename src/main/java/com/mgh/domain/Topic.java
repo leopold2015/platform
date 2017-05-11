@@ -3,43 +3,43 @@ package com.mgh.domain;
 import java.util.Date;
 
 public class Topic {
-    private Integer topicId;
+    private Integer topic_id;
 
-    private String topicContent;
+    private String topic_content;
 
-    private Date topicCreatetime;
+    private Date topic_createtime;
 
-    private Integer userId;
+    private Integer user_id;
 
-    public Integer getTopicId() {
-        return topicId;
+    public Integer getTopic_id() {
+        return topic_id;
     }
 
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
+    public void setTopic_id(Integer topic_id) {
+        this.topic_id = topic_id;
     }
 
-    public String getTopicContent() {
-        return topicContent;
+    public String getTopic_content() {
+        return topic_content;
     }
 
-    public void setTopicContent(String topicContent) {
-        this.topicContent = topicContent == null ? null : topicContent.trim();
+    public void setTopic_content(String topic_content) {
+        this.topic_content = topic_content;
     }
 
-    public Date getTopicCreatetime() {
-        return topicCreatetime;
+    public Date getTopic_createtime() {
+        return topic_createtime;
     }
 
-    public void setTopicCreatetime(Date topicCreatetime) {
-        this.topicCreatetime = topicCreatetime;
+    public void setTopic_createtime(Date topic_createtime) {
+        this.topic_createtime = topic_createtime;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 }

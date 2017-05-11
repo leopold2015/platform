@@ -109,7 +109,38 @@ span.content-text {
     height: auto;
     margin: 0px auto;
 }
-
-
-
+.add-topic-window {
+    width: 100%;
+    height: auto;
+    display:none;
+    text-align: center;
+}
+span.title-text-layer {
+    font-size: 1.5rem;
+    font-family: "微软雅黑";
+    color: #bf4031;
+}
+.topic-title-layer, .topic-content-layer {
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+input.content-text-layer {
+    border: 1px solid #bf4031;
+    height: 33px;
+    width:100%;
+    border-radius: 5px;
+}
+.add-content-layer {
+    width: 82%;
+    height: auto;
+    margin: 30px auto;
+}
+.layui-layer-title {
+    background-color: #9b3427!important;
+}
+.layui-layer-btn .layui-layer-btn0 {
+    background-color: #9b3427!important;
+    border:1px solid #9b3427!important;
+}
 

@@ -69,25 +69,36 @@
             <p class="content-text">我的</p>
         </div>
     </div>
+
+<div class="add-topic-window">
+	<div class="add-content-layer">
+		<div class="topic-title-layer">
+			<span class="title-text-layer">话题内容</span>
+		</div>
+		<div class="topic-content-layer">
+			<input type="text" class="content-text-layer">
+		</div>
+	</div>
+</div>
 <script src="/Platform/libs/jquery.js"></script>
 <script src="/Platform/libs/layer-v2.2/layer/layer.js"></script>
-<
+<script src="../../libs/handlebars-v4.0.5.js"></script>
 
-<script>
-	$(".topic-list").click(function(){
-		location.href="/Platform/pages/topic/topicDetail.html";
-	});
+<script src="../../src/scripts/topic/commuList.js"></script>
 
-	$(".footer-content").click(function(){
-		var text = $(this).find(".content-text").text();
-		if(text=="首页"){
-			location.href="/Platform/pages/index.html";
-		}else if(text=="交流"){
-			location.href="/Platform/pages/topic/commuList.html";
-		}else if(text=="我的"){
-			location.href="/Platform/pages/mine/mine.html";
-		}
-	});
+<script type="text/x-handlebars-template" id="content-template">
+	{{#each topics}}
+	<div class="topic-list">
+		<div class="topic-title">
+			<span class="title-text">{{topic_content}}</span>
+		</div>
+		<div class="topic-comment">
+			<span class="comment-text">参与讨论人数：10人</span>
+			<span class="create-time">创建时间：{{topic_createtime}}</span>
+		</div>
+		<img src="../../src/img/more1.png">
+	</div>
+	{{/each}}
 </script>
 </body>
 </html>

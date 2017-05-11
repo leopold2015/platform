@@ -3,6 +3,7 @@ package com.mgh.controller;
 import com.mgh.domain.User;
 import com.mgh.serviceManager.UserManager;
 import com.mgh.util.checkNumber.CheckPhone;
+import com.mgh.util.session.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +32,7 @@ public class UserController extends BaseController {
     @RequestMapping(value="/userRegister")
     @ResponseBody
     public Map<String,Object> userRegister(@RequestParam("user") User user){
-        userManager.checkUser_phone(user.getUserPhone());
+        userManager.checkUser_phone(user.getUser_phone());
         userManager.insertUser(user);
         return generateSuccessMsg("注册成功！");
     }

@@ -28,12 +28,13 @@ public class UserManagerImpl implements UserManager {
             User user = userMapper.selectUserByUser_phone(userPhone);
             if (user == null) {
                 throw new MessageException("该用户不存在，请您正确填写您的用户名！");
-            }else if(!userPwd.equals(user.getUserPwd())){
+            }else if(!userPwd.equals(user.getUser_pwd())){
                 throw new MessageException("您的密码不正确，请正确填写您的密码！");
-            }else if(user.getUserType() !=2){
+            }else if(user.getUser_type() !=1){
                 throw new MessageException("对不起，您的用户权限不足，无法登陆此区域");
+            }else if(user.getUser_type() == 1){
+                SessionUtils.bindSession("user",user);
             }
-            SessionUtils.bindSession("user",user);
         }
     }
 

@@ -21,14 +21,13 @@ public class TopicManagerImpl implements TopicManager {
 
 
     @Override
-    public void createTopic(Topic topic) {
-        if(topic.getTopicContent() ==null){
-            throw new MessageException("话题的内容不能为空！");
-        }else {
-            topic.setUserId(SessionUtils.getCurrentUser().getUserId());
-            topic.setTopicCreatetime(CurrentDate.getCurrentDate());
-            topicMapper.insertTopic(topic);
-        }
+    public void createTopic(String topic_content) {
+        Topic topic = new Topic();
+        topic.setTopic_content(topic_content);
+        topic.setTopic_createtime(CurrentDate.getCurrentDate());
+        int user_id = SessionUtils.getCurrentUser().getUser_id();
+        topic.setUser_id(user_id);
+        topicMapper.insertTopic(topic);
     }
 
     @Override
@@ -39,5 +38,10 @@ public class TopicManagerImpl implements TopicManager {
     @Override
     public void deleteTopicByTopic_id(int topic_id) {
         topicMapper.deleteByPrimaryKey(topic_id);
+    }
+
+    @Override
+    public List<Topic> showAllTopic() {
+        return topicMapper.showAllTopic();
     }
 }

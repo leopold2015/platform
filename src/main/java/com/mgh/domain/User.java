@@ -1,53 +1,53 @@
 package com.mgh.domain;
 
 public class User {
-    private Integer userId;
+    private Integer user_id;
 
-    private String userName;
+    private String user_name;
 
-    private String userPwd;
+    private String user_pwd;
 
-    private String userPhone;
+    private String user_phone;
 
-    private Integer userType;
+    private Integer user_type;
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
-    public String getUserPwd() {
-        return userPwd;
+    public String getUser_pwd() {
+        return user_pwd;
     }
 
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd == null ? null : userPwd.trim();
+    public void setUser_pwd(String user_pwd) {
+        this.user_pwd = user_pwd;
     }
 
-    public String getUserPhone() {
-        return userPhone;
+    public String getUser_phone() {
+        return user_phone;
     }
 
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone == null ? null : userPhone.trim();
+    public void setUser_phone(String user_phone) {
+        this.user_phone = user_phone;
     }
 
-    public Integer getUserType() {
-        return userType;
+    public Integer getUser_type() {
+        return user_type;
     }
 
-    public void setUserType(Integer userType) {
-        this.userType = userType;
+    public void setUser_type(Integer user_type) {
+        this.user_type = user_type;
     }
 }

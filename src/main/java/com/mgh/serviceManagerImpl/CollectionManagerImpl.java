@@ -19,8 +19,8 @@ public class CollectionManagerImpl implements CollectionManager {
     @Override
     public void insertCollection(int collection_id) {
         Collection collection = new Collection();
-        collection.setCommunicateId(collection_id);
-        collection.setUserId(SessionUtils.getCurrentUser().getUserId());
+        collection.setCommunicate_id(collection_id);
+        collection.setUser_id(SessionUtils.getCurrentUser().getUser_id());
         collectionMapper.insertCollection(collection);
     }
 
