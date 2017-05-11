@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="header">
-    	<img src="../../src/img/left.png" class="left-image">
+    	<img src="../../src/img/left.png" class="left-image" class="previous">
         <span class="content-title">话题列表</span>
         <img src="../../src/img/add1.png" class="add-image">  
 </div>
@@ -69,5 +69,25 @@
             <p class="content-text">我的</p>
         </div>
     </div>
+<script src="/Platform/libs/jquery.js"></script>
+<script src="/Platform/libs/layer-v2.2/layer/layer.js"></script>
+<
+
+<script>
+	$(".topic-list").click(function(){
+		location.href="/Platform/pages/topic/topicDetail.html";
+	});
+
+	$(".footer-content").click(function(){
+		var text = $(this).find(".content-text").text();
+		if(text=="首页"){
+			location.href="/Platform/pages/index.html";
+		}else if(text=="交流"){
+			location.href="/Platform/pages/topic/commuList.html";
+		}else if(text=="我的"){
+			location.href="/Platform/pages/mine/mine.html";
+		}
+	});
+</script>
 </body>
 </html>

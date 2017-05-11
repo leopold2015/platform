@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="header">
-		<img src="../../src/img/left.png">
+		<img src="../../src/img/left.png" class="previous">
 		<p>党史情怀</p>
 	</div>
 	<div class="mainInfo">
@@ -24,5 +24,13 @@
 		</div>
 		
 	</div>
+	<script type="text/javascript" src="/Platform/libs/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".previous").click(function(){
+				window.location="/platform/pages/index.html"
+			})
+		})
+	</script>
 </body>
 </html>
