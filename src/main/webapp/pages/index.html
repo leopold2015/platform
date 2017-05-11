@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-     <link rel="stylesheet" type="text/css" href="../src/css/common.css">
-    <link rel="stylesheet" href="../src/css/index.css">
+     <link rel="stylesheet" type="text/css" href="/Platform/src/css/common.css">
+    <link rel="stylesheet" href="/Platform/src/css/index.css">
     <title>首页</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
                     <img src="../src/img/news-image.jpg" alt="新闻照片页" width="80" height="80">
                 </div>
                 <div class="current-news-content">
-                    <span class="current-news-title" idt="1">国产大飞机首飞成功！</span>
+                    <span class="current-news-title" id="1">国产大飞机首飞成功！</span>
                     <span class="current-news-comment">军事·123人评论·1小时</span>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <img src="../src/img/news-image.jpg" alt="新闻照片页" width="80" height="80">
                 </div>
                 <div class="current-news-content">
-                    <span class="current-news-title" idt="1">国产大飞机首飞成功！</span>
+                    <span class="current-news-title" id="2">国产大飞机首飞成功！</span>
                     <span class="current-news-comment">军事·123人评论·1小时</span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <img src="../src/img/news-image.jpg" alt="新闻照片页" width="80" height="80">
                 </div>
                 <div class="current-news-content">
-                    <span class="current-news-title" idt="2">国产大飞机首飞成功！</span>
+                    <span class="current-news-title" id="3">国产大飞机首飞成功！</span>
                     <span class="current-news-comment">军事·123人评论·1小时</span>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <img src="../src/img/news-image.jpg" alt="新闻照片页" width="80" height="80">
                 </div>
                 <div class="current-news-content">
-                    <span class="current-news-title" idt="2">国产大飞机首飞成功！</span>
+                    <span class="current-news-title" id="4">国产大飞机首飞成功！</span>
                     <span class="current-news-comment">军事·123人评论·1小时</span>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <img src="../src/img/flag3.jpg" alt="新闻照片页" width="80" height="80">
                 </div>
                 <div class="current-news-content">
-                    <span class="current-news-title" idt="3">习近平系列讲话</span>
+                    <span class="current-news-title" id="5">习近平系列讲话</span>
                     <span class="current-news-comment">政治·123人评论·1小时</span>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     <img src="../src/img/flag3.jpg" alt="新闻照片页" width="80" height="80">
                 </div>
                 <div class="current-news-content">
-                    <span class="current-news-title" idt="3">毛泽东思想</span><br/>
+                    <span class="current-news-title" id="6">毛泽东思想</span><br/>
                     <span class="current-news-comment">政治·123人评论·1小时</span>
                 </div>
             </div>
@@ -97,39 +97,51 @@
 
     <div class="footer">
         <div class="footer-content">
-            <img src="../src/img/home.png" class="home">
+            <img src="/Platform/src/img/home.png" class="home">
             <p class="content-text">首页</p>
         </div>
         <div class="footer-content">
-        <img src="../src/img/atm.png" class="comm">
+        <img src="/Platform/src/img/atm.png" class="comm">
             <p class="content-text">交流</p>
         </div>
         <div class="footer-content">
-            <img src="../src/img/user.png" class="user">
+            <img src="/Platform/src/img/user.png" class="user">
             <p class="content-text">我的</p>
         </div>
     </div>
 
 </div>
-<script src="../libs/jquery.js"></script>
-<script src="../libs/layer-v2.2/layer/layer.js"></script>
+<script src="/Platform/libs/jquery.js"></script>
+<script src="/Platform/libs/layer-v2.2/layer/layer.js"></script>
 <script>
-    $("footer-content").click(function(){
-        var text = $(this).find("content-text").text();
+    $(".footer-content").click(function(){
+        var text = $(this).find(".content-text").text();
         if(text=="首页"){
             location.href="/Platform/pages/index.html";
         }else if(text=="交流"){
-            location.href="/Platform/pages/topic/commuLit.html";
+            location.href="/Platform/pages/topic/commuList.html";
         }else if(text=="我的"){
             location.href="/Platform/pages/mine/mine.html";
         }
     });
 
-    $(".content-body").click(function(){
-        var num = $(this).find(".current-news-title").attr("idt");
-        if(num == 1){
-            
-        }
+    $("#1").click(function(){
+        location.href="/Platform/pages/detail/newsDetail.html";
+    });
+    $("#2").click(function(){
+        location.href="/Platform/pages/detail/newsDetail.html";
+    });
+    $("#3").click(function(){
+        location.href="/Platform/pages/detail/historyDetail.html";
+    });
+    $("#4").click(function(){
+        location.href="/Platform/pages/detail/historyDetail.html";
+    });
+    $("#5").click(function(){
+        location.href="/Platform/pages/detail/classicalDetail.html";
+    });
+    $("#6").click(function(){
+        location.href="/Platform/pages/detail/classicalDetail.html";
     });
 </script>
 </body>

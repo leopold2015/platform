@@ -50,6 +50,20 @@
             <p class="content-text">我的</p>
         </div>
     </div>
+    <script src="/Platform/libs/jquery.js"></script>
+    <script src="/Platform/libs/layer-v2.2/layer/layer.js"></script>
+    <script>
+        $(".footer-content").click(function(){
+            var text = $(this).find(".content-text").text();
+            if(text=="首页"){
+                location.href="/Platform/pages/index.html";
+            }else if(text=="交流"){
+                location.href="/Platform/pages/topic/commuList.html";
+            }else if(text=="我的"){
+                location.href="/Platform/pages/mine/mine.html";
+            }
+        });
+    </script>
 
 </div>
 </body>

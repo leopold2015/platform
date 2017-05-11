@@ -5,17 +5,17 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>新闻详情</title>
-    <link rel="stylesheet" type="text/css" href="../../src/css/common.css">
-    <link rel="stylesheet" type="text/css" href="../../src/css/newsDetail/newsDetail.css">
+    <link rel="stylesheet" type="text/css" href="/Platform/src/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/Platform/src/css/newsDetail/newsDetail.css">
 </head>
 <body>
 	<div class="header">
-		<img src="../../src/img/left.png">
+		<img src="/Platform/src/img/left.png" >
 		<p>时政要闻</p>
 	</div>
 	<div class="mark">
 		<!-- <p>国防军工:国产大飞机C919成功首飞</p>	 -->
-		<img src="../../src/img/news-image.jpg">
+		<img src="../../src/img/news-image.jpg" class="previous">
 	</div>
 	<div class="main">
 		<span>国防军工:国产大飞机C919成功首飞</span>
@@ -25,5 +25,12 @@
 		</p>
 	</div>
 	<img src="../../src/img/">
+	<script type="text/javascript">
+		$(function(){
+			$(".previous").click(function(){
+				window.location="/platform/pages/index.html"
+			})
+		})
+	</script>
 </body>
 </html>
