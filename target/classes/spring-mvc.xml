@@ -106,7 +106,7 @@
     <bean id="handlebarsViewResolver" class="com.github.jknack.handlebars.springmvc.HandlebarsViewResolver">
         <!--  <constructor-arg value="com.ruijie.crazy.handlebars.CustomHandlebarsView" />-->
         <property name="order" value="1" />
-        <property name="prefix" value="/page/" />
+        <property name="prefix" value="/pages/" />
         <property name="suffix" value=".html" />
         <property name="contentType" value="text/html;charset=utf-8" />
         <property name="failOnMissingFile" value="false" />

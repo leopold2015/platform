@@ -56,7 +56,15 @@ $(function(){
 
 function detail(){
     $(".topic-title").click(function(){
-        location.href="/Platform/pages/topic/topicDetail.html";
+        var topic_id = $(this).parent(".topic-list").attr("topic_id");
+        $.ajax({
+            url:'/Platform/topic/showTopicByTopic_id',
+            data:{
+                topic_id:topic_id
+            },
+            type:'post',
+        });
+        //location.href="/Platform/pages/topic/topicDetail.html";
     });
 }
 
