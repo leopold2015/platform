@@ -1,6 +1,7 @@
 package com.mgh.mapper;
 
 import com.mgh.domain.Communicate;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,5 +22,7 @@ public interface CommunicateMapper {
 
     int updateByPrimaryKey(Communicate record);
 
-    List<Communicate> selectCommunicateByTopic_id(int topic_id);
+    List<Communicate> selectCommunicateByTopic_id(@Param("topic_id") int topic_id,@Param("user_id") int user_id);
+
+    List<Communicate> selectCommunicateByUser_id(@Param("topic_id") int topic_id,@Param("user_id") int user_id);
 }

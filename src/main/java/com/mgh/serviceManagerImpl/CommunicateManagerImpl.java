@@ -31,7 +31,12 @@ public class CommunicateManagerImpl implements CommunicateManager {
     }
 
     @Override
-    public List<Communicate> selectCommunicateByTopic_id(int topic_id) {
-        return communicateMapper.selectCommunicateByTopic_id(topic_id);
+    public List<Communicate> selectCommunicateByTopic_id(int topic_id,int user_id) {
+        return communicateMapper.selectCommunicateByTopic_id(topic_id,user_id);
+    }
+
+    @Override
+    public List<Communicate> selectCommunicateByUser_id(int topic_id, int user_id) {
+        return communicateMapper.selectCommunicateByUser_id(topic_id,user_id);
     }
 }

@@ -61,10 +61,12 @@ public class TopicController extends BaseController {
     @RequestMapping(value="/showTopicByTopic_id")
     @ResponseBody
     public ModelAndView showTopicByTopic_id(@RequestBody int topic_id){
-        List<Communicate> communicates = communicateManager.selectCommunicateByTopic_id(topic_id);
+        List<Communicate> communicatesOthers = communicateManager.selectCommunicateByUser_id(topic_id,SessionUtils.getCurrentUser().getUser_id());
+        List<Communicate> communicatesUsers = communicateManager.selectCommunicateByTopic_id(topic_id,SessionUtils.getCurrentUser().getUser_id());
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("communicates",communicates);
-        mav.setViewName("/pages/topic/topicDetail.html");
+        modelAndView.addObject("communicatesOthers",communicatesOthers);
+        modelAndView.addObject("communicatesUsers",communicatesUsers);
+        modelAndView.setViewName("/pages/topic/topicDetail.html");
         return modelAndView;
     }
 }

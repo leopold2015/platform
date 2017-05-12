@@ -25,8 +25,14 @@
     where communicate_id = #{communicateId,jdbcType=INTEGER}
   </select>
   <select id="selectCommunicateByTopic_id" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select * from topic,communicate where topic_id = #{topic_id}
+    select * from topic,communicate where topic_id = #{topic_id} and user_id = #{user_id}
   </select>
+
+  <select id="selectCommunicateByUser_id" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from topic communicate where topic_id = #{topic_id} and user_id != #{user_id}
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from communicate
     where communicate_id = #{communicateId,jdbcType=INTEGER}

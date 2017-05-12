@@ -102,5 +102,15 @@
     </bean>
     <!--自定义异常处理机制-->
     <!--<bean class="com.cktv.exception.handle.MyExceptionResolver"/>-->
+    <!-- VIEW RESOLVER -->
+    <bean id="handlebarsViewResolver" class="com.github.jknack.handlebars.springmvc.HandlebarsViewResolver">
+        <!--  <constructor-arg value="com.ruijie.crazy.handlebars.CustomHandlebarsView" />-->
+        <property name="order" value="1" />
+        <property name="prefix" value="/page/" />
+        <property name="suffix" value=".html" />
+        <property name="contentType" value="text/html;charset=utf-8" />
+        <property name="failOnMissingFile" value="false" />
+        <property name="cache" value="false" />
+    </bean>
 
 </beans>
