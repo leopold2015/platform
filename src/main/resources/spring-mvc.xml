@@ -53,7 +53,7 @@
             <mvc:exclude-mapping path="/user/sendUserDay"/>
             <mvc:exclude-mapping path="/exam/showExamOfListen"/>
             <mvc:exclude-mapping path="/user/sentCodeOfBack"/>
-            <bean id="Interceptor" class="com.listening.util.interceptor.Interceptor"/>
+            <bean id="Interceptor" class="com.mgh.util.interceptor.Interceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>-->
     <!--对静态资源的访问-->

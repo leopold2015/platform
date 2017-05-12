@@ -80,6 +80,7 @@
 		</div>
 	</div>
 </div>
+
 <script src="/Platform/libs/jquery.js"></script>
 <script src="/Platform/libs/layer-v2.2/layer/layer.js"></script>
 <script src="../../libs/handlebars-v4.0.5.js"></script>
@@ -88,15 +89,15 @@
 
 <script type="text/x-handlebars-template" id="content-template">
 	{{#each topics}}
-	<div class="topic-list">
+	<div class="topic-list" topic="{{topic_id}}">
 		<div class="topic-title">
 			<span class="title-text">{{topic_content}}</span>
 		</div>
 		<div class="topic-comment">
-			<span class="comment-text">参与讨论人数：10人</span>
-			<span class="create-time">创建时间：{{topic_createtime}}</span>
+			<span class="comment-text">创建人：</span><span class="create_username">{{user.user_name}}</span>
+			<span class="create-time">创建时间：</span><span class="create_usercreatetime">{{topic_createtime}}</span>
 		</div>
-		<img src="../../src/img/more1.png">
+		<img src="../../src/img/delete.png" class="delete-img">
 	</div>
 	{{/each}}
 </script>

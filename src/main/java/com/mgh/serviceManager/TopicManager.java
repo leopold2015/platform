@@ -11,5 +11,5 @@ public interface TopicManager {
     void createTopic(String topic_content);
     List<Topic> showTopicByUser_id(int user_id);
     void deleteTopicByTopic_id(int topic_id);
-    List<Topic> showAllTopic(); 
+    List<Topic> showAllTopics();
 }

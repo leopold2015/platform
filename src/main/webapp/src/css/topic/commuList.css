@@ -87,10 +87,10 @@ span.content-text {
     border-radius: 5px;
     position:relative;
 }
-.topic-list img{
-    width: 9%;
+.topic-list img {
+    width: 6%;
     position: absolute;
-    top: 1em;
+    top: 1.3em;
     right: 0.5em;
 }
 .topic-title {
@@ -143,4 +143,9 @@ input.content-text-layer {
     background-color: #9b3427!important;
     border:1px solid #9b3427!important;
 }
-
+.create_username {
+    color: firebrick;
+}
+.create_usercreatetime{
+    color: firebrick;
+}

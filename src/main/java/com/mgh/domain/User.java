@@ -50,4 +50,5 @@ public class User {
     public void setUser_type(Integer user_type) {
         this.user_type = user_type;
     }
+
 }

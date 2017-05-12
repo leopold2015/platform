@@ -3,6 +3,8 @@ package com.mgh.mapper;
 import com.mgh.domain.Communicate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public interface CommunicateMapper {
     void deleteByPrimaryKey(Integer communicateId);
@@ -18,4 +20,6 @@ public interface CommunicateMapper {
     int updateByPrimaryKeyWithBLOBs(Communicate record);
 
     int updateByPrimaryKey(Communicate record);
+
+    List<Communicate> selectCommunicateByTopic_id(int topic_id);
 }

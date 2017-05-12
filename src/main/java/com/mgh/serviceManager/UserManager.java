@@ -2,6 +2,7 @@ package com.mgh.serviceManager;
 
 import com.mgh.domain.User;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,4 +14,5 @@ public interface UserManager {
     void checkUser_phone(String user_phone);
     void insertUser(User user);
     void userQuit();
+
 }

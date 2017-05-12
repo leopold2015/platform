@@ -8,6 +8,8 @@ import com.mgh.util.session.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created by mgh on 2017/4/24.
  */
@@ -26,5 +28,10 @@ public class CommunicateManagerImpl implements CommunicateManager {
     @Override
     public void deleteCommunicateByCommunicate_id(int communicate_id) {
         communicateMapper.deleteByPrimaryKey(communicate_id);
+    }
+
+    @Override
+    public List<Communicate> selectCommunicateByTopic_id(int topic_id) {
+        return communicateMapper.selectCommunicateByTopic_id(topic_id);
     }
 }

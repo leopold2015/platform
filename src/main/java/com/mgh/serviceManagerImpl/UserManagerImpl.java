@@ -11,6 +11,8 @@ import com.mgh.util.string.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created by mgh on 2017/4/24.
  */

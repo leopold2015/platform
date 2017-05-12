@@ -16,7 +16,7 @@ public class CurrentDate {
             Calendar now = Calendar.getInstance();
             Date date = new Date();
             System.out.println(date);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateNowStr = sdf.format(date);
             today = sdf.parse(dateNowStr);
         } catch (ParseException e){

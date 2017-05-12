@@ -11,6 +11,8 @@ public class Topic {
 
     private Integer user_id;
 
+    private User user;
+
     public Integer getTopic_id() {
         return topic_id;
     }
@@ -41,5 +43,13 @@ public class Topic {
 
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -19,5 +19,5 @@ public interface TopicMapper {
 
     int updateByPrimaryKey(Topic record);
 
-    List<Topic> showAllTopic();
+    List<Topic> showAllTopics();
 }

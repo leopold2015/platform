@@ -41,7 +41,8 @@ public class TopicManagerImpl implements TopicManager {
     }
 
     @Override
-    public List<Topic> showAllTopic() {
-        return topicMapper.showAllTopic();
+    public List<Topic> showAllTopics() {
+        return topicMapper.showAllTopics();
     }
+
 }
