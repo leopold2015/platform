@@ -5,6 +5,7 @@ import com.mgh.mapper.CommunicateMapper;
 import com.mgh.serviceManager.CommunicateManager;
 import com.mgh.util.currentTime.CurrentDate;
 import com.mgh.util.session.SessionUtils;
+import com.mgh.util.store.StoreNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,9 +20,12 @@ public class CommunicateManagerImpl implements CommunicateManager {
     @Autowired
     private CommunicateMapper communicateMapper;
     @Override
-    public void insertCommunicate(Communicate communicate) {
+    public void insertCommunicate(String communicate_content) {
+        Communicate communicate = new Communicate();
+        communicate.setCommunicate_content(communicate_content);
         communicate.setUser_id(SessionUtils.getCurrentUser().getUser_id());
         communicate.setCommunicate_time(CurrentDate.getCurrentDate());
+        communicate.setTopic_id(StoreNumber.getNumber());
         communicateMapper.insertCommunicate(communicate);
     }
 
@@ -31,12 +35,7 @@ public class CommunicateManagerImpl implements CommunicateManager {
     }
 
     @Override
-    public List<Communicate> selectCommunicateByTopic_id(int topic_id,int user_id) {
-        return communicateMapper.selectCommunicateByTopic_id(topic_id,user_id);
-    }
-
-    @Override
-    public List<Communicate> selectCommunicateByUser_id(int topic_id, int user_id) {
-        return communicateMapper.selectCommunicateByUser_id(topic_id,user_id);
+    public List<Communicate> selectCommunicateByTopic_id(int topic_id) {
+        return communicateMapper.selectCommunicateByTopic_id(topic_id);
     }
 }

@@ -68,5 +68,10 @@ public class UserManagerImpl implements UserManager {
         }
     }
 
+    @Override
+    public User showUserByUser_id(int user_id) {
+        return userMapper.selectByPrimaryKey(user_id);
+    }
+
 
 }

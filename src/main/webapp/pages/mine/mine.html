@@ -26,8 +26,10 @@
             </div>
             <div class="collect">
                 <img src="../../src/img/phone.png">
-                <span>电话号码</span> 
-                <span class="tel">18225605852</span>
+                <span>电话号码</span>
+                <span class="tel">
+                    <span>1121</span>
+                </span>
             </div>
             <div class="collect">
                 <img src="../../src/img/password.png">
@@ -50,8 +52,10 @@
             <p class="content-text">我的</p>
         </div>
     </div>
-    <script src="/Platform/libs/jquery.js"></script>
-    <script src="/Platform/libs/layer-v2.2/layer/layer.js"></script>
+    <script src="../../libs/jquery.js"></script>
+    <script src="../../libs/layer-v2.2/layer/layer.js"></script>
+    <script src="../../libs/handlebars-v4.0.5.js"></script>
+    <script src="../../src/scripts/mine/mine.js"></script>
     <script>
         $(".footer-content").click(function(){
             var text = $(this).find(".content-text").text();
@@ -63,6 +67,19 @@
                 location.href="/Platform/pages/mine/mine.html";
             }
         });
+    </script>
+
+    <script type="text/x-handlebars-template" id="content-template2">
+        <img src="../../src/img/user.jpg">
+        <div class="infoContent">
+            <p>{{user_name}}</p>
+            <p class="userTime">transformat {{user_type}}</p>
+        </div>
+
+    </script>
+
+    <script type="text/x-handlebars-template" id="content-template1">
+        <span>{{user_phone}}</span>
     </script>
 
 </div>

@@ -50,6 +50,14 @@ public class UserController extends BaseController {
         return generateSuccessMsg("用户退出成功！");
     }
 
+    @RequestMapping(value="/showUserByUser_id")
+    @ResponseBody
+    public Map<String,Object> showUserByUser_id(){
+        User user = userManager.showUserByUser_id(SessionUtils.getCurrentUser().getUser_id());
+        Map<String,Object> successMsg = generateSuccessMsg("查询成功！");
+        successMsg.put("user",user);
+        return successMsg;
+    }
 
 
 }

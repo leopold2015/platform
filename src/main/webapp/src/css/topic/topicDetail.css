@@ -59,7 +59,8 @@ span.content-title {
     padding:1em;
     line-height: 1.6em;
     margin-left: 5px;
-    top: 2em;
+    top: -1em;
+    font-size: 1.5rem;
 }
 
 .left-send .arrow {
@@ -98,8 +99,11 @@ span.content-title {
     padding:1em;
     line-height: 1.6em;
     margin-left: 5px;
-    top: 2em;
+    top: -1em;
     right:5px;
+    background-color: lawngreen;
+    opacity: 0.8;
+    font-size: 1.5rem;
 }
 
 .right-send .arrow {
@@ -131,15 +135,14 @@ span.content-title {
     width: 7%;
     vertical-align: middle;
 }
-.send-info input{
-    width:65%;
-    height: 2em;
+.send-info input {
+    width: 65%;
+    height: 2.0em;
     border: none;
     border-bottom: 1px solid #68bd95;
     background-color: #fff;
-    margin-top: 1em;
     vertical-align: middle;
-
+    font-size: 2.1rem;
 }
 .send-info .btn{
     width: 22%;

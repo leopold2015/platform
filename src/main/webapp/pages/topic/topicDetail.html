@@ -1,75 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
- 	<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>话题详情</title>
-	<link rel="stylesheet" type="text/css" href="../../src/css/topic/topicDetail.css">
+    <title>话题详情</title>
+    <link rel="stylesheet" type="text/css" href="../../src/css/topic/topicDetail.css">
 </head>
 <body>
-    <div class="header">
-        <img src="../../src/img/left.png" class="left-image" class="previous"
-        >
-        <span class="content-title">对从严治党有什么看法</span>
-    </div>
-    <div class="main">
-        {{#foreach communicatesOthers}}
-        <div class="others-info">
-            <img src="../../src/img/user.jpg">
-            <div class="left-send">
-                <div class="arrow"></div>
-                <p>{{communicate_content}}</p>
-                <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
-            </div>  
-        </div>
-        {{#foreach}}
-        <div class="others-info">
-            <img src="../../src/img/user.jpg">
-            <div class="left-send">
-                <div class="arrow"></div>
-                <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
-            </div>  
-        </div>
-        <div class="user-info">
-            <div class="right-send">
-                <div class="arrow"></div>
-                <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
-            </div>
-            <img src="../../src/img/user.jpg">
-        </div>
-        <div class="user-info">
-            <div class="right-send">
-                <div class="arrow"></div>
-                <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
-            </div>
-            <img src="../../src/img/user.jpg">
-        </div>
-        <div class="others-info">
-            <img src="../../src/img/user.jpg">
-            <div class="left-send">
-                <div class="arrow"></div>
-                <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
-            </div>  
-        </div>
-        <div class="user-info">
-            <div class="right-send">
-                <div class="arrow"></div>
-                <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
-            </div>
-            <img src="../../src/img/user.jpg">
-        </div>
-    </div>
-	
-    <div class="send-info">
-        <img src="../../src/img/info.png"/>
+<div class="header">
+    <img src="../../src/img/left.png" class="left-image" class="previous">
+    <span class="content-title">对从严治党有什么看法</span>
+</div>
+<div class="main">
+    <div class="others-info" user_id="{{topic.user_id}}">
+        <img src="../../src/img/user.jpg">
 
-        <form action="/Platform/topic/addCommunicate" method="post">
-            <input type="text"/>
-            <button class="btn">发送</button>
-        </form>
+        <div class="left-send">
+            <div class="arrow"></div>
+            <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
+        </div>
     </div>
-    <script src="../../libs/jquery.js"></script>
-    <script src="../../libs/layer-v2.2/layer/layer.js"></script>
-    <script src="../../src/scripts/topic/topicDetail.js"></script>
+    <div class="others-info">
+        <img src="../../src/img/user.jpg">
+
+        <div class="left-send">
+            <div class="arrow"></div>
+            <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
+        </div>
+    </div>
+    <div class="user-info">
+        <div class="right-send">
+            <div class="arrow"></div>
+            <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
+        </div>
+        <img src="../../src/img/user.jpg">
+    </div>
+    <div class="user-info">
+        <div class="right-send">
+            <div class="arrow"></div>
+            <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
+        </div>
+        <img src="../../src/img/user.jpg">
+    </div>
+    <div class="others-info">
+        <img src="../../src/img/user.jpg">
+
+        <div class="left-send">
+            <div class="arrow"></div>
+            <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
+        </div>
+    </div>
+    <div class="user-info">
+        <div class="right-send">
+            <div class="arrow"></div>
+            <p>全面从严治党，基础在全面，关键在严，要害在治。全面从严治党，基础在全面，关键在严，要害在治。</p>
+        </div>
+        <img src="../../src/img/user.jpg">
+    </div>
+</div>
+
+<div class="send-info">
+    <img src="../../src/img/info.png"/>
+
+    <form style="display:inline">
+        <input type="text" class="message-text"/>
+        <button class="btn">发送</button>
+    </form>
+</div>
+<script src="../../libs/jquery.js"></script>
+<script src="../../libs/layer-v2.2/layer/layer.js"></script>
+<script src="../../src/scripts/topic/topicDetail.js"></script>
+<script src="../../src/scripts/topic/common.js"></script>
+<script src="../../libs/handlebars-v4.0.5.js"></script>
+<script type="text/x-handlebars-template" id="content-template">
+    {{#each communicates}}
+    {{#compare user_id}}
+    <div class="others-info" user_id="{{topic.user_id}}">
+        <img src="../../src/img/user.jpg">
+
+        <div class="left-send">
+            <div class="arrow"></div>
+            <p>{{communicate_content}}</p>
+        </div>
+    </div>
+    {{else}}
+    <div class="user-info">
+        <div class="right-send">
+            <div class="arrow"></div>
+            <p>{{communicate_content}}</p>
+        </div>
+        <img src="../../src/img/user.jpg">
+    </div>
+    {{/compare}}
+    {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="content-template-topic-title">
+    <img src="../../src/img/left.png" class="left-image" class="previous">
+    <span class="content-title" user_id="{{user_id}}">{{topic.topic_content}}</span>
+</script>
+
+
 </body>
 </html>

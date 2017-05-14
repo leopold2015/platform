@@ -14,5 +14,6 @@ public interface UserManager {
     void checkUser_phone(String user_phone);
     void insertUser(User user);
     void userQuit();
+    User showUserByUser_id(int user_id);
 
 }

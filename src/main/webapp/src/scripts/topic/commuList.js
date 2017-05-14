@@ -58,13 +58,16 @@ function detail(){
     $(".topic-title").click(function(){
         var topic_id = $(this).parent(".topic-list").attr("topic_id");
         $.ajax({
-            url:'/Platform/topic/showTopicByTopic_id',
-            data:{
-                topic_id:topic_id
-            },
+            url:'/Platform/topic/storeTopicByTopic_id/'+topic_id,
             type:'post',
+            success:function(data){
+                var result = eval(data);
+                if(result.success){
+                    location.href="/Platform/pages/topic/topicDetail.html";
+                }
+            }
         });
-        //location.href="/Platform/pages/topic/topicDetail.html";
+
     });
 }
 

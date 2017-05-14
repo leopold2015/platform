@@ -22,7 +22,6 @@ public interface CommunicateMapper {
 
     int updateByPrimaryKey(Communicate record);
 
-    List<Communicate> selectCommunicateByTopic_id(@Param("topic_id") int topic_id,@Param("user_id") int user_id);
+    List<Communicate> selectCommunicateByTopic_id(@Param("topic_id") int topic_id);
 
-    List<Communicate> selectCommunicateByUser_id(@Param("topic_id") int topic_id,@Param("user_id") int user_id);
 }

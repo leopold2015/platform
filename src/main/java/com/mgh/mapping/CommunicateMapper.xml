@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mgh.mapper.CommunicateMapper" >
   <resultMap id="BaseResultMap" type="com.mgh.domain.Communicate" >
-    <id column="communicate_id" property="communicateId" jdbcType="INTEGER" />
-    <result column="communicate_time" property="communicateTime" jdbcType="DATE" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="topic_id" property="topicId" jdbcType="INTEGER" />
+    <id column="communicate_id" property="communicate_id" jdbcType="INTEGER" />
+    <result column="communicate_time" property="communicate_time" jdbcType="DATE" />
+    <result column="user_id" property="user_id" jdbcType="INTEGER" />
+    <result column="topic_id" property="topic_id" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.mgh.domain.Communicate" extends="BaseResultMap" >
     <result column="communicate_content" property="communicateContent" jdbcType="LONGVARCHAR" />
@@ -22,26 +22,21 @@
     ,
     <include refid="Blob_Column_List" />
     from communicate
-    where communicate_id = #{communicateId,jdbcType=INTEGER}
+    where communicate_id = #{communicate_id,jdbcType=INTEGER}
   </select>
   <select id="selectCommunicateByTopic_id" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select * from topic,communicate where topic_id = #{topic_id} and user_id = #{user_id}
+    select * from communicate where topic_id = #{topic_id}
   </select>
-
-  <select id="selectCommunicateByUser_id" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select * from topic communicate where topic_id = #{topic_id} and user_id != #{user_id}
-  </select>
-
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from communicate
-    where communicate_id = #{communicateId,jdbcType=INTEGER}
+    where communicate_id = #{communicate_id,jdbcType=INTEGER}
   </delete>
   <insert id="insertCommunicate" parameterType="com.mgh.domain.Communicate" >
     insert into communicate (communicate_id, communicate_time, user_id, 
       topic_id, communicate_content)
-    values (#{communicateId,jdbcType=INTEGER}, #{communicateTime,jdbcType=DATE}, #{userId,jdbcType=INTEGER}, 
-      #{topicId,jdbcType=INTEGER}, #{communicateContent,jdbcType=LONGVARCHAR})
+    values (#{communicate_id,jdbcType=INTEGER}, #{communicate_time,jdbcType=DATE}, #{user_id,jdbcType=INTEGER},
+      #{topic_id,jdbcType=INTEGER}, #{communicate_content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mgh.domain.Communicate" >
     insert into communicate
@@ -64,19 +59,19 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="communicateId != null" >
-        #{communicateId,jdbcType=INTEGER},
+        #{communicate_id,jdbcType=INTEGER},
       </if>
       <if test="communicateTime != null" >
-        #{communicateTime,jdbcType=DATE},
+        #{communicate_time,jdbcType=DATE},
       </if>
       <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
+        #{user_id,jdbcType=INTEGER},
       </if>
       <if test="topicId != null" >
-        #{topicId,jdbcType=INTEGER},
+        #{topic_id,jdbcType=INTEGER},
       </if>
       <if test="communicateContent != null" >
-        #{communicateContent,jdbcType=LONGVARCHAR},
+        #{communicate_content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -84,33 +79,33 @@
     update communicate
     <set >
       <if test="communicateTime != null" >
-        communicate_time = #{communicateTime,jdbcType=DATE},
+        communicate_time = #{communicate_time,jdbcType=DATE},
       </if>
       <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{user_id,jdbcType=INTEGER},
       </if>
       <if test="topicId != null" >
-        topic_id = #{topicId,jdbcType=INTEGER},
+        topic_id = #{topic_id,jdbcType=INTEGER},
       </if>
       <if test="communicateContent != null" >
-        communicate_content = #{communicateContent,jdbcType=LONGVARCHAR},
+        communicate_content = #{communicate_content,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where communicate_id = #{communicateId,jdbcType=INTEGER}
+    where communicate_id = #{communicate_id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mgh.domain.Communicate" >
     update communicate
-    set communicate_time = #{communicateTime,jdbcType=DATE},
-      user_id = #{userId,jdbcType=INTEGER},
-      topic_id = #{topicId,jdbcType=INTEGER},
-      communicate_content = #{communicateContent,jdbcType=LONGVARCHAR}
-    where communicate_id = #{communicateId,jdbcType=INTEGER}
+    set communicate_time = #{communicate_time,jdbcType=DATE},
+      user_id = #{user_id,jdbcType=INTEGER},
+      topic_id = #{topic_id,jdbcType=INTEGER},
+      communicate_content = #{communicate_content,jdbcType=LONGVARCHAR}
+    where communicate_id = #{communicate_id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mgh.domain.Communicate" >
     update communicate
-    set communicate_time = #{communicateTime,jdbcType=DATE},
-      user_id = #{userId,jdbcType=INTEGER},
-      topic_id = #{topicId,jdbcType=INTEGER}
-    where communicate_id = #{communicateId,jdbcType=INTEGER}
+    set communicate_time = #{communicate_time,jdbcType=DATE},
+      user_id = #{user_id,jdbcType=INTEGER},
+      topic_id = #{topic_id,jdbcType=INTEGER}
+    where communicate_id = #{communicate_id,jdbcType=INTEGER}
   </update>
 </mapper>

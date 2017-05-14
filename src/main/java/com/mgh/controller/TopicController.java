@@ -7,6 +7,7 @@ import com.mgh.serviceManager.CommunicateManager;
 import com.mgh.serviceManager.TopicManager;
 import com.mgh.serviceManager.UserManager;
 import com.mgh.util.session.SessionUtils;
+import com.mgh.util.store.StoreNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +24,6 @@ import java.util.Map;
 public class TopicController extends BaseController {
     @Autowired
     private TopicManager topicManager;
-    @Autowired
-    private CommunicateManager communicateManager;
 
     @RequestMapping(value = "/createTopic")
     @ResponseBody
@@ -58,15 +57,21 @@ public class TopicController extends BaseController {
         return generateSuccessMsg("删除成功！");
     }
 
+    @RequestMapping(value="/storeTopicByTopic_id/{topic_id}")
+    @ResponseBody
+    public Map<String,Object> storeTopicByTopic_id(@PathVariable("topic_id") int topic_id){
+        StoreNumber.setNumber(topic_id);
+        Map<String,Object> successMsg = generateSuccessMsg("存储成功！");
+        return successMsg;
+    }
+
     @RequestMapping(value="/showTopicByTopic_id")
     @ResponseBody
-    public ModelAndView showTopicByTopic_id(@RequestBody int topic_id){
-        List<Communicate> communicatesOthers = communicateManager.selectCommunicateByUser_id(topic_id,SessionUtils.getCurrentUser().getUser_id());
-        List<Communicate> communicatesUsers = communicateManager.selectCommunicateByTopic_id(topic_id,SessionUtils.getCurrentUser().getUser_id());
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("communicatesOthers",communicatesOthers);
-        modelAndView.addObject("communicatesUsers",communicatesUsers);
-        modelAndView.setViewName("/pages/topic/topicDetail.html");
-        return modelAndView;
+    public Map<String,Object> showTopicByTopic_id(){
+        Topic topic = topicManager.showTopicByTopic_id(StoreNumber.getNumber());
+        Map<String,Object> successMsg = generateSuccessMsg("查询成功！");
+        successMsg.put("topic",topic);
+        successMsg.put("user_id",SessionUtils.getCurrentUser().getUser_id());
+        return successMsg;
     }
 }

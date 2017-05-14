@@ -45,4 +45,9 @@ public class TopicManagerImpl implements TopicManager {
         return topicMapper.showAllTopics();
     }
 
+    @Override
+    public Topic showTopicByTopic_id(int topic_id) {
+        return topicMapper.selectTopicBytopic_id(topic_id);
+    }
+
 }

@@ -27,6 +27,10 @@
     select * from topic,user where user.user_id = topic.user_id;
   </select>
 
+    <select id="selectTopicBytopic_id" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select * from topic where topic_id = #{topic_id}
+    </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from topic
     where topic_id = #{topic_id,jdbcType=INTEGER}

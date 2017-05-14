@@ -12,4 +12,5 @@ public interface TopicManager {
     List<Topic> showTopicByUser_id(int user_id);
     void deleteTopicByTopic_id(int topic_id);
     List<Topic> showAllTopics();
+    Topic showTopicByTopic_id(int topic_id);
 }
