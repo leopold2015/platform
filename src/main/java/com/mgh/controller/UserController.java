@@ -59,5 +59,14 @@ public class UserController extends BaseController {
         return successMsg;
     }
 
+    @RequestMapping(value="/sendCode")
+    @ResponseBody
+    public Map<String,Object> sendCode(@RequestParam("user_phone") String user_phone){
+        Map<String,Object> successMsg = generateSuccessMsg("获取验证码成功!");
+        int code = (int)((Math.random()*9+1)*100000);
+        userManager.sendMessage(code,user_phone);
+        successMsg.put("code",code);
+        return successMsg;
+    }
 
 }

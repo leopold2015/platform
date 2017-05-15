@@ -73,5 +73,10 @@ public class UserManagerImpl implements UserManager {
         return userMapper.selectByPrimaryKey(user_id);
     }
 
+    @Override
+    public void sendMessage(int code, String user_phone) {
+        System.out.println("通过手机给用户发送信息!");
+    }
+
 
 }

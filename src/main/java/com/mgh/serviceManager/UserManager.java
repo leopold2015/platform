@@ -15,5 +15,6 @@ public interface UserManager {
     void insertUser(User user);
     void userQuit();
     User showUserByUser_id(int user_id);
+    void sendMessage(int code,String user_phone);
 
 }
