@@ -15,7 +15,7 @@
         select
           *
         from user
-        where user_id = #{userId,jdbcType=INTEGER}
+        where user_id = #{user_id,jdbcType=INTEGER}
     </select>
 
     <select id="showAllTopics" resultMap="BaseResultMap">
@@ -36,8 +36,8 @@
     <insert id="insertUser" parameterType="com.mgh.domain.User">
     insert into user (user_id, user_name, user_pwd, 
       user_phone, user_type)
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
-      #{userPhone,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER})
+    values (#{user_id,jdbcType=INTEGER}, #{user_name,jdbcType=VARCHAR}, #{user_pwd,jdbcType=VARCHAR},
+      #{user_phone,jdbcType=VARCHAR}, #{user_type,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.mgh.domain.User">
         insert into user

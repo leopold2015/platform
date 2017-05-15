@@ -11,7 +11,9 @@ import com.mgh.util.string.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by mgh on 2017/4/24.
@@ -41,21 +43,30 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public void checkUser_phone(String user_phone) {
+    public Map<String,Object> checkUser_phone(String user_phone) {
+        Map<String,Object> map = new HashMap<>();
         if(StringUtil.isEmpty(user_phone) && CheckPhone.isMobilePhone(user_phone)){
             throw new MessageException("请正确填写您的用户名和密码！");
         }else{
             User user = userMapper.selectUserByUser_phone(user_phone);
             if(user == null){
-                throw new MessageException("该用户尚未注册，可进行注册！");
+                map.put("msg","该用户尚未注册，可进行注册！");
+                map.put("success",true);
             }else {
-                throw new MessageException("该用户已注册，请重新填写手机号码！");
+                map.put("msg","该用户已注册，请重新填写手机号码!");
+                map.put("success",false);
             }
         }
+        return map;
     }
 
     @Override
-    public void insertUser(User user){
+    public void insertUser(String user_phone,String user_pwd,String user_name){
+        User user = new User();
+        user.setUser_name(user_name);
+        user.setUser_phone(user_phone);
+        user.setUser_pwd(user_pwd);
+        user.setUser_type(1);
         userMapper.insertUser(user);
     }
 

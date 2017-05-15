@@ -11,8 +11,8 @@ import java.util.Map;
 public interface UserManager {
 
     void userLogin(String userPhone,String userPwd);
-    void checkUser_phone(String user_phone);
-    void insertUser(User user);
+    Map<String,Object> checkUser_phone(String user_phone);
+    void insertUser(String user_phone,String user_pwd,String user_name);
     void userQuit();
     User showUserByUser_id(int user_id);
     void sendMessage(int code,String user_phone);

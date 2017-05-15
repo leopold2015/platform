@@ -1,11 +1,14 @@
 /**
  * Created by mgh on 2017/5/7.
  */
+//定义全局变量，存储服务器传过来的验证码
+var codeNumber;
+
 function checkPhone(phone){
     var flag = false;
-    if(phone == ""){
+    if(phone === ""){
         layer.msg("您输入的手机号码有误，请重新输入");
-    }else if(isPhone(phone)){
+    }else if(!isPhone(phone)){
         layer.msg("您输入的手机号码有误，请重新输入")
     }else{
         flag = true;
@@ -19,19 +22,17 @@ function checkPhone(phone){
                 var result = eval(data);
                 if(!result.success){
                     layer.msg("手机号码已被注册！");
-                }else{
-                    layer.msg("手机号码未注册！");
                 }
             },
             error:function(){
-                alert("请求中断！");
+                layer.msg("请求中断！");
             }
         });
     }
     return flag;
 }
 
-function checkpassword(password,passwordAgain){
+function checkpassword(password){
     //必须为字母加数字且长度不小于8位
     var flag = false;
     var str = password;
@@ -42,19 +43,26 @@ function checkpassword(password,passwordAgain){
         flag = false;
     }else if(str.length<6){
         layer.msg("密码长度不能小于6位")
+        flag = false;
     }else if (!reg1.test(str)) {
         layer.msg("密码必须包含字母")
         flag = false;
     }else if (!reg.test(str)) {
         layer.msg("密码必须包含数字字母");
         flag = false;
-    } else if(password !== passwordAgain){
-        layer.msg("密码前后不一致,请重新输入!");
-        flag = false;
-    }else{
+    } else{
         flag = true;
     }
     return flag;
+}
+
+function checkpasswordAgain(password,passwordAgain){
+    if(password === passwordAgain){
+        return true;
+    }else{
+        layer.msg("前后密码不一致，请重新输入！");
+        return false;
+    }
 }
 
 function checkUserName(userName){
@@ -65,53 +73,65 @@ function checkUserName(userName){
     }else {
         flag = true;
     }
+    return flag;
 }
-function checkCodeNumber(phone){
-    var flag = false;
+
+//点击获取验证码
+function getCode(){
+
     $(".code-btn").click(function(){
-        if(checkPhone(phone)){
+        var phone = $(".user-phone").val();
+        if(phone !="" && isPhone(phone)){
             $.ajax({
                 url:'/Platform/user/sendCode',
                 type:'post',
+                async:false,
                 data:{
                     user_phone:phone
                 },
                 success:function(data){
                     var result = eval(data);
                     if(result.success){
-                        if(checkCode(success.code)){
-                            flag = true;
-                        }else {
-                            flag = false;
-                        }
+                        codeNumber = result.code;
+
                     }else{
                         layer.msg("验证码发送失败!");
                     }
                 }
             });
-        }
-
-    });
-    return flag;
-}
-function checkCode(code){
-    $(".user-code").blur(function(){
-        var codetext = $(this).val();
-        if(codetext ===""){
-            layer.msg("验证码不能为空!");
-            return false;
-        }else if(codetext !== code){
-            layer.msg("验证码不正确,请重新输入验证码!");
-            return false;
         }else{
-            return true;
+            layer.msg("请输入正确的手机号码！");
         }
     });
-
+}
+/*function checkCodeNumber(phone){
+    var flag = false;
+    layer.msg("请点击按钮获取验证码！");
+    return flag;
+}*/
+function checkCodeNumber(){
+    var flag = false;
+    if(codeNumber == ""){
+        layer.msg("请点击按钮获取验证码！");
+        flag = false;
+    }else{
+        var codetext = $(".user-code").val();
+        if(codetext == undefined){
+            layer.msg("验证码不能为空!");
+            flag = false;
+        }else if(codetext != codeNumber){
+            layer.msg("验证码不正确,请重新输入验证码!");
+            flag = false;
+        }else{
+            flag = true;
+        }
+    }
+    return flag;
 }
 
 //点击注册按钮
 $(function(){
+
     $(".user-btn-login").click(function(){
         var phone = $(".user-phone").val();
         var password = $(".user-pwd").val();
@@ -122,9 +142,9 @@ $(function(){
             user_pwd:password,
             user_name:userName,
         }
-        if(checkPhone(phone) && checkpassword(password,passwordAgain) && checkUserName(userName) && checkCodeNumber()){
+        if(checkPhone(phone) && checkpassword(password) && checkpasswordAgain(password,passwordAgain) && checkUserName(userName) && checkCodeNumber(phone)){
             $.ajax({
-                url:"/Platform/user/userRegister",
+                url:"/Platform/user/userRegister/"+phone+"/"+password+"/"+userName,
                 type:'post',
                 data:JSON.stringify(date),
                 async:false,
@@ -143,4 +163,43 @@ $(function(){
         }
     });
 
+    $(".user-phone").blur(function(){
+        checkPhone($.trim($(this).val()));
+    });
+
+    $(".user-pwd").blur(function(){
+        var password = $.trim($(this).val());
+        checkpassword(password);
+    });
+
+    $(".user-pwd-again").blur(function(){
+        var passwordPwdAgain = $.trim($(this).val());
+        var password = $.trim($(".user-pwd").val());
+        checkpasswordAgain(password,passwordPwdAgain);
+    });
+    $(".user-name").blur(function(){
+        var userName = $(this).val();
+        checkUserName(userName);
+    });
+
+    $(".user-code").blur(function(){
+        var phone = $(".user-phone").val();
+        if(phone == ""){
+            layer.msg("请输入手机号码！");
+        }else{
+            checkCodeNumber(phone);
+        }
+    });
+
+    //点击获取验证码
+    getCode();
+
 });
+
+function isPhone(phone){
+    if(!(/^1[34578]\d{9}$/.test(phone))){
+        return false;
+    }else {
+        return true;
+    }
+}

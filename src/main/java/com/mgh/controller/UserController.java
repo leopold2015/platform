@@ -6,10 +6,7 @@ import com.mgh.util.checkNumber.CheckPhone;
 import com.mgh.util.session.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -29,18 +26,16 @@ public class UserController extends BaseController {
         return generateSuccessMsg("登录成功！");
     }
 
-    @RequestMapping(value="/userRegister")
+    @RequestMapping(value="/userRegister/{user_phone}/{user_pwd}/{user_name}")
     @ResponseBody
-    public Map<String,Object> userRegister(@RequestParam("user") User user){
-        userManager.checkUser_phone(user.getUser_phone());
-        userManager.insertUser(user);
+    public Map<String,Object> userRegister(@PathVariable("user_phone") String user_phone,@PathVariable("user_pwd") String user_pwd,@PathVariable("user_name") String user_name){
+        userManager.insertUser(user_phone,user_pwd,user_name);
         return generateSuccessMsg("注册成功！");
     }
     @RequestMapping(value="/checkUser_phone")
     @ResponseBody
     public Map<String,Object> checkUser_phone(@RequestParam("user_phone") String user_phone){
-        userManager.checkUser_phone(user_phone);
-        return generateSuccessMsg("该用户可注册！");
+        return userManager.checkUser_phone(user_phone);
     }
 
     @RequestMapping(value="/userQuit")
